@@ -1,0 +1,12 @@
+{
+    "item":[
+        {
+            "name":"Samsung",
+            "price":"999"
+        },
+        {
+            "name":"Iphone",
+            "price":"1200"
+        }
+    ]
+}
