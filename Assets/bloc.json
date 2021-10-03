@@ -2,10 +2,12 @@
     "item":[
         {
             "name":"Samsung",
+            "img":"https://images.samsung.com/is/image/samsung/assets/my/smartphones/galaxy-note20/buy/001-note20series-productimage-mo-720.jpg",
             "price":"999"
         },
         {
             "name":"Iphone",
+            "img":"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1617135051000",
             "price":"1200"
         }
     ]
