@@ -53,6 +53,7 @@ class _CartPageState extends State<CartPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           InkWell(onTap: (){
+                          
 
                           },child: Icon(Icons.minimize_outlined).pOnly(right: 12)),
                           Column(
