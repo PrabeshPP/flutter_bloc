@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc1/cubit.dart';
-
-import 'counterpage.dart';
+import 'package:flutter_bloc1/blocobserver.dart';
+import 'package:flutter_bloc1/homepage.dart';
 
 void main() {
-  Bloc.observer = CounterObserver();
+   Bloc.observer= SimpleBlocObserver();
   runApp(MyApp());
 }
 
-class MyApp extends MaterialApp {
-  const MyApp({Key? key}) : super(key: key, home: const CounterPage());
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home:Homepage() ,
+    );
+  }
 }
