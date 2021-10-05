@@ -8,7 +8,7 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<Counterubit>(create:(_)=>Counterubit(),
+    return BlocProvider(create:(_)=>Counterubit(),
     child: CounterPage(),);
   }
 }
