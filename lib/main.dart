@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc1/blocobserver.dart';
-import 'package:flutter_bloc1/homepage.dart';
+import 'package:flutter_bloc1/logic/cubit/blocobserver.dart';
+import 'package:flutter_bloc1/presentation/homepage.dart';
 
 void main() {
    Bloc.observer= SimpleBlocObserver();
