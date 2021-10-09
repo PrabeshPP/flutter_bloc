@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc1/logic/cubit/countercubit.dart';
-import 'package:flutter_bloc1/presentation/screens/second_screen.dart';
-import 'package:velocity_x/velocity_x.dart';
+
 
 class CounterPage extends StatelessWidget {
   const CounterPage({Key? key}) : super(key: key);
