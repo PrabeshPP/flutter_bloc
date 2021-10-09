@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc1/logic/cubit/countercubit.dart';
 import 'package:flutter_bloc1/presentation/screens/second_screen.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({Key? key}) : super(key: key);
@@ -10,16 +11,6 @@ class CounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (_) => BlocProvider.value(
-                  value:BlocProvider.of<Countercubit>(context),
-                  child: SecondPage())));
-          },
-          label: Row(
-            children: [Text("NextPage"), Icon(Icons.navigate_next)],
-          )),
       appBar: AppBar(
         title: Text("Counter Page"),
       ),
@@ -52,7 +43,20 @@ class CounterPage extends StatelessWidget {
                     size: 25,
                   ))
             ],
-          )
+          ),
+          MaterialButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed("/second");
+            },
+            child: Text("Second Page"),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          MaterialButton(onPressed: () {
+            Navigator.of(context).pushNamed("/third");
+          },
+          child:Text("Third Page") ,)
         ],
       ),
     );
