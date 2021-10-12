@@ -47,7 +47,21 @@ class CounterPage extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pushNamed("/second");
             },
-            child: Text("Second Page"),
+            child: Container(height: 50,width: 100
+            ,decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(32.0),
+              gradient: LinearGradient(end: Alignment.bottomCenter,
+              begin: Alignment.topCenter,
+                colors: [Colors.teal,Colors.red,Colors.deepOrange])
+            ),child: Center(child: Text("Second Page",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.white,
+              fontWeight: FontWeight.bold
+            ),
+            )
+            )
+            ),
           ),
           SizedBox(
             height: 10,
@@ -55,7 +69,20 @@ class CounterPage extends StatelessWidget {
           MaterialButton(onPressed: () {
             Navigator.of(context).pushNamed("/third");
           },
-          child:Text("Third Page") ,)
+          child:Container(
+            height: 50,width: 100
+            ,decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(32.0),
+              gradient: LinearGradient(end: Alignment.bottomCenter,
+              begin: Alignment.topCenter,
+                colors: [Colors.teal,Colors.red,Colors.deepOrange])
+            ),
+            child: Center(child: Text("Third Page"
+            ,style: TextStyle(
+              fontSize: 15,
+              color: Colors.white,
+              fontWeight: FontWeight.bold
+            ),))) ,)
         ],
       ),
     );
