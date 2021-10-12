@@ -12,33 +12,29 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  final AppRouter _approuter = AppRouter();
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      onGenerateRoute: _approuter.onGenerateRoute,
-      // initialRoute: "/",
-      // routes: {
-      //   "/": (_) => BlocProvider.value(
-      //     value:_countercubit
-      //   ,child: Homepage()),
-      //   "/second": (_) => BlocProvider.value(
-      //     value:_countercubit ,
-      //   child: SecondPage()),
-      //   "/third": (_) => BlocProvider.value(
-      //     value:_countercubit,
-      //   child: ThirdPage())
-      // }
+   final AppRouter _approuter=AppRouter();
+    return BlocProvider(
+      create: (context)=>Countercubit(),
+      child: MaterialApp(
+        onGenerateRoute: _approuter.onGenerateRoute,
+        // initialRoute: "/",
+        // routes: {
+        //   "/": (_) => BlocProvider.value(
+        //     value:_countercubit
+        //   ,child: Homepage()),
+        //   "/second": (_) => BlocProvider.value(
+        //     value:_countercubit ,
+        //   child: SecondPage()),
+        //   "/third": (_) => BlocProvider.value(
+        //     value:_countercubit,
+        //   child: ThirdPage())
+        // }
+      ),
     );
   }
-
-
 }
