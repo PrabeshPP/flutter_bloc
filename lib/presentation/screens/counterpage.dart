@@ -17,14 +17,17 @@ class CounterPage extends StatelessWidget {
           listener: (context, state) {
             if (state is InternetConnected &&
                 state.connectionType == ConnectionType.Wifi) {
+              context.read<Countercubit>().increment();
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 backgroundColor: Colors.green,
                 content: Text("Connected to wifi"),
                 duration: Duration(seconds: 3),
               ));
             } else if (state is InternetDisconnected) {
+              context.read<Countercubit>().decrement();
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text("No Internet!"),
+                duration: Duration(minutes: TimeOfDay.hoursPerDay),
                 action: SnackBarAction(label: "Ok", onPressed: () {}),
               ));
             }
