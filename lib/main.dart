@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
           create: (context) => Countercubit(),
         ),
       ],
+      
       child: MaterialApp(
         onGenerateRoute: approuter.onGenerateRoute,
         // initialRoute: "/",

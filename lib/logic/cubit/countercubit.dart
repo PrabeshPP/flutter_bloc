@@ -6,9 +6,9 @@ import 'package:flutter_bloc1/logic/cubit/internet_cubit.dart';
 class Countercubit extends Cubit<int> {
   
 
-  Countercubit() : super(100);
-  void increment() => emit(state + 50);
-  void decrement() => emit(state - 50);
+  Countercubit() : super(0);
+  void increment() => emit(state + 2);
+  void decrement() => emit(state - 2);
 
   void dispose() {}
 }
