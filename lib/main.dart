@@ -1,4 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc1/logic/cubit/blocobserver.dart';
@@ -6,12 +7,25 @@ import 'package:flutter_bloc1/logic/cubit/countercubit.dart';
 import 'package:flutter_bloc1/logic/cubit/internet_cubit.dart';
 import 'package:flutter_bloc1/presentation/router/app_router.dart';
 
+class Myclass extends Equatable {
+  final int value;
+
+  Myclass({required this.value});
+  @override
+  // TODO: implement props
+  List<Object?> get props => [value];
+}
+
 void main() {
-  Bloc.observer = SimpleBlocObserver();
-  runApp(MyApp(
-    approuter: AppRouter(),
-    connectivity: Connectivity(),
-  ));
+  final a = Myclass(value: 1);
+  final b = Myclass(value: 1);
+  print(a == b);
+ ;
+  // Bloc.observer = SimpleBlocObserver();
+  // runApp(MyApp(
+  //   approuter: AppRouter(),
+  //   connectivity: Connectivity(),
+  // ));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,13 +39,12 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<InternetCubit>(
-          create: (context) =>InternetCubit(connectivity: connectivity),
+          create: (context) => InternetCubit(connectivity: connectivity),
         ),
         BlocProvider<Countercubit>(
           create: (context) => Countercubit(),
         ),
       ],
-      
       child: MaterialApp(
         onGenerateRoute: approuter.onGenerateRoute,
         // initialRoute: "/",
