@@ -17,9 +17,10 @@ class CounterPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BlocBuilder<Countercubit, int>(builder: (context, state) {
+              BlocBuilder<Countercubit, CounterState>(
+                  builder: (context, state) {
                 return Text(
-                  "$state",
+                  "${state.counterValue}",
                   style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                 );
               }),
@@ -29,12 +30,13 @@ class CounterPage extends StatelessWidget {
                 if (internetState is InternetConnected &&
                     internetState.connectionType == ConnectionType.Wifi) {
                   return Text(
-                    "Counter:$CounterState " + "Internet:Wifi",
+                    "Counter:${CounterState.counterValue} " + "Internet:Wifi",
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   );
                 } else {
                   return Text(
-                    "Counter:$CounterState" + "Internet:No Internet",
+                    "Counter:${CounterState.counterValue}" +
+                        "Internet:No Internet",
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   );
                 }
@@ -42,10 +44,7 @@ class CounterPage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Builder(builder: (context) {
-                final _counterCubit = context.watch<Countercubit>().state;
-                return Text("Counter:$_counterCubit");
-              }),
+              
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

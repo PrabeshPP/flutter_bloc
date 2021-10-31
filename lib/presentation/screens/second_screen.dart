@@ -3,24 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc1/logic/cubit/countercubit.dart';
 
-
 class SecondPage extends StatelessWidget {
   const SecondPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
-     
       appBar: AppBar(
         title: Text("SecondPage"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          BlocBuilder<Countercubit, int>(builder: (context, state) {
+          BlocBuilder<Countercubit, CounterState>(builder: (context, state) {
             return Text(
-              "$state",
+              "${state.counterValue}",
               style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
             );
           }),

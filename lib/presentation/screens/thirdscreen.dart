@@ -9,17 +9,15 @@ class ThirdPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
-         
       appBar: AppBar(
         title: Text("Third Page"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          BlocBuilder<Countercubit, int>(builder: (context, state) {
+          BlocBuilder<Countercubit, CounterState>(builder: (context, state) {
             return Text(
-              "$state",
+              "${state.counterValue}",
               style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
             );
           }),

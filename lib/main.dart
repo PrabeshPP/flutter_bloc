@@ -1,31 +1,23 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc1/logic/cubit/blocobserver.dart';
 import 'package:flutter_bloc1/logic/cubit/countercubit.dart';
 import 'package:flutter_bloc1/logic/cubit/internet_cubit.dart';
 import 'package:flutter_bloc1/presentation/router/app_router.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
-class Myclass extends Equatable {
-  final int value;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(
+      storageDirectory: await getApplicationDocumentsDirectory());
 
-  Myclass({required this.value});
-  @override
-  // TODO: implement props
-  List<Object?> get props => [value];
-}
-
-void main() {
-  final a = Myclass(value: 1);
-  final b = Myclass(value: 1);
-  print(a == b);
- ;
-  // Bloc.observer = SimpleBlocObserver();
-  // runApp(MyApp(
-  //   approuter: AppRouter(),
-  //   connectivity: Connectivity(),
-  // ));
+ 
+  runApp(MyApp(
+    approuter: AppRouter(),
+    connectivity: Connectivity(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
