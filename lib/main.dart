@@ -1,19 +1,19 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc1/logic/cubit/blocobserver.dart';
 import 'package:flutter_bloc1/logic/cubit/countercubit.dart';
 import 'package:flutter_bloc1/logic/cubit/internet_cubit.dart';
+import 'package:flutter_bloc1/logic/utility/app_bloc_observer.dart';
 import 'package:flutter_bloc1/presentation/router/app_router.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
 void main() async {
+  Bloc.observer = AppBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
       storageDirectory: await getApplicationDocumentsDirectory());
 
- 
   runApp(MyApp(
     approuter: AppRouter(),
     connectivity: Connectivity(),
